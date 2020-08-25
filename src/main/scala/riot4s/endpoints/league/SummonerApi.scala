@@ -11,8 +11,8 @@ import riot4s.domains.encodings._
 
 class SummonerApi(client: Client[IO], devKey: String) extends LeagueEndpoint {
 
-  implicit val deriveEntityDecoder: EntityDecoder[IO, SummonerResponse] =
-    CirceEntityDecoder.circeEntityDecoder[IO, SummonerResponse]
+  implicit val deriveEntityDecoder: EntityDecoder[IO, SummonerDTO] =
+    CirceEntityDecoder.circeEntityDecoder[IO, SummonerDTO]
 
   protected val version: String      = "v4"
   protected val sumExtension: String = s"summoner/$version/summoners"
@@ -27,24 +27,24 @@ class SummonerApi(client: Client[IO], devKey: String) extends LeagueEndpoint {
 
   def summonerUri: Uri = leagueEndpoint.addPath(sumExtension)
 
-  def byName(name: String): IO[SummonerResponse] = {
+  def byName(name: String): IO[SummonerDTO] = {
     val byNameUri = summonerUri.addPath(s"by-name/$name")
-    client.expect[SummonerResponse](requestBuilder(byNameUri))
+    client.expect[SummonerDTO](requestBuilder(byNameUri))
   }
 
-  def byAccount(account: String): IO[SummonerResponse] = {
+  def byAccount(account: String): IO[SummonerDTO] = {
     val byAccountUri = summonerUri.addPath(s"by-account/$account")
-    client.expect[SummonerResponse](requestBuilder(byAccountUri))
+    client.expect[SummonerDTO](requestBuilder(byAccountUri))
   }
 
-  def byPuuid(puuid: String): IO[SummonerResponse] = {
+  def byPuuid(puuid: String): IO[SummonerDTO] = {
     val byPuuidUri = summonerUri.addPath(s"by-puuid/$puuid")
-    client.expect[SummonerResponse](requestBuilder(byPuuidUri))
+    client.expect[SummonerDTO](requestBuilder(byPuuidUri))
   }
 
-  def byId(id: String): IO[SummonerResponse] = {
+  def byId(id: String): IO[SummonerDTO] = {
     val byIdUri = summonerUri.addPath(s"$id")
-    client.expect[SummonerResponse](requestBuilder(byIdUri))
+    client.expect[SummonerDTO](requestBuilder(byIdUri))
   }
 
 }

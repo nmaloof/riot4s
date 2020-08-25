@@ -1,6 +1,6 @@
 package riot4s.domains
 
-final case class SummonerResponse(
+final case class SummonerDTO(
     accountId: String,
     profileIconId: Int,
     revisionDate: Long,

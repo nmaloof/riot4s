@@ -24,7 +24,7 @@ class ChampionApi(client: Client[IO], devKey: String) extends LeagueEndpoint {
     )
   }
 
-  def getChampionRotations = {
+  def getChampionRotations(): IO[ChampionInfo] = {
     client.expect[ChampionInfo](requestBuilder(championUri))
   }
 

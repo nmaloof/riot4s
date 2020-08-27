@@ -7,14 +7,10 @@ object encodings {
 
   // -- Summoner Api
   implicit val summonerDTODecoder: Decoder[SummonerDTO] = deriveDecoder[SummonerDTO]
-  // implicit val summonerEncoder: Encoder[SummonerResponse] = deriveEncoder[SummonerResponse]
 
   // -- Match Api
   implicit val matchReferenceDtoDecoder: Decoder[MatchReferenceDto] = deriveDecoder[MatchReferenceDto]
-  // implicit val matchReferenceDtoEncoder: Encoder[MatchReferenceDto] = deriveEncoder[MatchReferenceDto]
   implicit val matchlistDtoDecoder: Decoder[MatchlistDto] = deriveDecoder[MatchlistDto]
-  // implicit val matchlistDtoEncoder: Encoder[MatchlistDto] = deriveEncoder[MatchlistDto]
-
   implicit val playerDtoDecoder: Decoder[PlayerDto]                           = deriveDecoder[PlayerDto]
   implicit val participantIdentityDtoDecoder: Decoder[ParticipantIdentityDto] = deriveDecoder[ParticipantIdentityDto]
   implicit val teamBansDtoDecoder: Decoder[TeamBansDto]                       = deriveDecoder[TeamBansDto]
@@ -25,7 +21,6 @@ object encodings {
   implicit val teamStatsDtoDecoder: Decoder[TeamStatsDto]                     = deriveDecoder[TeamStatsDto]
   implicit val participantDtoDecoder: Decoder[ParticipantDto]                 = deriveDecoder[ParticipantDto]
   implicit val matchDtoDecoder: Decoder[MatchDto]                             = deriveDecoder[MatchDto]
-
   implicit val matchPositionDtoDecoder: Decoder[MatchPositionDto] = deriveDecoder[MatchPositionDto]
   implicit val matchEventDtoDecoder: Decoder[MatchEventDto]       = deriveDecoder[MatchEventDto]
   implicit val matchParticipantFrameDtoDecoder: Decoder[MatchParticipantFrameDto] =
@@ -33,8 +28,6 @@ object encodings {
   implicit val matchFrameDtoDecoder: Decoder[MatchFrameDto]       = deriveDecoder[MatchFrameDto]
   implicit val matchTimelineDtoDecoder: Decoder[MatchTimelineDto] = deriveDecoder[MatchTimelineDto]
 
-  // implicit val matchDtoEncoder: Encoder[MatchDto] = deriveEncoder[MatchDto]
-
-  // implicit val matchResponseDecoder: Decoder[MatchDto] = deriveDecoder[MatchDto]
-  // implicit val matchResponseEncoder: Encoder[MatchDto] = deriveEncoder[MatchDto]
+  // -- Champion Api
+  implicit val championInfoDecoder: Decoder[ChampionInfo] = deriveDecoder[ChampionInfo]
 }

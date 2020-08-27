@@ -28,7 +28,7 @@ object Main extends IOApp {
             a <- riotClient.league.summoner.byName(sumName)
             // _ <- IO(println(a))
             b <- riotClient.league.match_.byAccount(a.accountId)
-            games <- b.matches.filter(x => x.champion == Champions("Pantheon")).take(15).traverse { x =>
+            games <- b.matches.filter(x => x.champion == Champions("Pantheon").getOrElse(-1)).take(15).traverse { x =>
               riotClient.league.match_.byMatchId(x.gameId)
             }
             _ <- IO(println(games.head))

@@ -155,13 +155,8 @@ object Champions {
     142 -> Champion("Zoe"),
     143 -> Champion("Zyra")
   )
+  private val champs2: Map[Champion, Int] = champs.map(_.swap)
 
-  def apply(champName: String): Int = {
-    champs
-      .find { pair: (Int, Champion) =>
-        pair._2.name == champName
-      }
-      .map(x => x._1)
-      .getOrElse(-1)
-  }
+  def apply(champName: String): Option[Int]  = champs2.get(Champion(champName))
+  def apply(champNum: Int): Option[Champion] = champs.get(champNum)
 }
